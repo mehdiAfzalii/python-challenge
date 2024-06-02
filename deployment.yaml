@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secure-backend-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: secure-backend
+  template:
+    metadata:
+      labels:
+        app: secure-backend
+    spec:
+      containers:
+      - name: secure-backend
+        image: your-dockerhub-username/secure-backend:latest
+        ports:
+        - containerPort: 8000
